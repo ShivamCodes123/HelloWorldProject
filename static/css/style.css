@@ -1,0 +1,18 @@
+#title {
+    color: black;
+    text-align: center;
+    font-family: "Rubik", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+#text {
+    margin-top: 120px;
+    color: black;
+    text-align: left;
+    font-family: "Rubik", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
