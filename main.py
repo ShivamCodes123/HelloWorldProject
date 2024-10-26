@@ -2,9 +2,11 @@
 import cv2
 import mediapipe as mp
 import numpy as np
-from flask import Flask, render_template, Response
+from flask import Flask, render_template, Response, jsonify
+import random
 from mediapipe.tasks.python.components.containers.landmark import NormalizedLandmark
 
+count = 0
 
 mp_drawing = mp.solutions.drawing_utils
 mp_pose = mp.solutions.pose
@@ -20,6 +22,13 @@ def index():
 def video_feed():
     return Response(generate_frames(),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
+
+# Route used to update counter variable
+@app.route('/update_counter')
+def update_counter():
+    global count
+    count += 1
+    return jsonify(counter=count)
 
 # Function to generate video frames
 def generate_frames():
@@ -58,3 +67,4 @@ def generate_frames():
 
 if __name__ == '__main__':
     app.run(debug=True)
+

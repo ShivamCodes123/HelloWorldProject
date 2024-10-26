@@ -1,4 +1,14 @@
 #title {
+    margin-left: 10px;
+    color: black;
+    text-align: left;
+    font-family: "Rubik", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+#description {
     color: black;
     text-align: center;
     font-family: "Rubik", serif;
@@ -7,12 +17,39 @@
     font-style: normal;
 }
 
-#text {
-    margin-top: 120px;
+.counter {
     color: black;
-    text-align: left;
+    text-align: center;
     font-family: "Rubik", serif;
     font-optical-sizing: auto;
-    font-weight: 500;
+    font-weight: 400;
     font-style: normal;
+}
+
+.container {
+    gap: 150px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 20px;
+    background-color: lightblue; 
+    width: 100%; 
+    box-sizing: border-box;
+    
+}
+
+.box {
+    background-color: white;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid black;
+    width: 150px;
+}
+
+.video-box {
+    text-align: left;
+}
+
+body {
+    background-color: #f9f9f9;
 }

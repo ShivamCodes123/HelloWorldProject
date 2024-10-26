@@ -10,13 +10,30 @@
     <title>Push Up Tracker</title>
 </head>
 <body>
-    <h1 id = "title">
-        <u>Push Up Tracker</u>
-    </h1>
-    <h2 id = "text">
-        Live Video Stream
-        <br>
-        <img src="{{ url_for('video_feed') }}" width="640" height="480">
-    </h2>
-</body>
+    <h1 id = "title">Push Up Tracker</h1>
+    <div class="container">
+        <div class="video-box">
+            <img src="{{ url_for('video_feed') }}" width="640" height="480" alt="Video Feed">
+        </div>
+        
+        <div class="box">
+            
+            <h2 class="counter" class="grid-item">Push Up Counter:</h2>
+            <div class="counter" id="counter-variable">0</div>
+        </div>
+    </div>
+   
+    <script>    
+        function updateCounter() {
+            fetch('/update_counter')
+                .then(response => response.json()) 
+                .then(data => {
+                    document.getElementById('counter-variable').innerText = data.counter;
+                })
+                .catch(error => console.log('Error:', error));
+        }
+
+        setInterval(updateCounter, 3000);
+    </script>
+    </body>
 </html>
