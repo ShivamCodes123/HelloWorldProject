@@ -10,7 +10,7 @@
     <title>Push Up Tracker</title>
 </head>
 <body>
-    <h1 id = "title">Push Up Tracker</h1>
+    <h1 id = "title">PUSH UP TRACKER</h1>
     <div class="container">
         <div class="video-box">
             <img src="{{ url_for('video_feed') }}" width="640" height="480" alt="Video Feed">
@@ -18,19 +18,39 @@
         
         <div class="box">
             
-            <h2 class="counter" class="grid-item">Push Up Counter:</h2>
+            <h2 class="counter" class="grid-item">Counter:</h2>
             <div class="counter" id="counter-variable">0</div>
+        </div>
+        <div class="box">
+            <label>
+                <input type = "checkbox"  class = "text" id = "enableTTS" onclick = "toggleTTS()""> Enable TTS
+            </label>
         </div>
     </div>
    
     <script>    
+        let ttsEnabled = false;
+
+        function toggleTTS() {
+            ttsEnabled = document.getElementById('enableTTS').checked;
+        }
+
         function updateCounter() {
             fetch('/update_counter')
                 .then(response => response.json()) 
                 .then(data => {
-                    document.getElementById('counter-variable').innerText = data.counter;
+                    if (ttsEnabled) {
+                        const number = data.counter;
+                        const utterance = new SpeechSynthesisUtterance(number);
+                        utterance.volume = 1.0;
+                        speechSynthesis.speak(utterance);
+                    }
+                    setTimeout(() => {
+                        document.getElementById('counter-variable').innerText = data.counter;
+                    }, 450);
                 })
                 .catch(error => console.log('Error:', error));
+                
         }
 
         setInterval(updateCounter, 3000);
