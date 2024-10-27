@@ -1,0 +1,96 @@
+#title {
+    background: linear-gradient(to right, cadetblue, darkcyan);
+    background-clip: text;
+    color: transparent;
+    margin-left: 10px;
+    text-align: left;
+    font-family: "Rubik", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.counter {
+    font-size: 35px;
+    color: darkcyan;
+    text-align: center;
+    font-family: "Rubik", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.container {
+    gap: 150px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 20px;
+    background-color: lightblue; 
+    width: 100%; 
+    box-sizing: border-box;
+    
+}
+
+.flex-container {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+}
+
+#title {
+    margin-right: 20px;
+    font-size: 2.25rem;
+}
+
+#photo {
+    width: 100px;  /* Adjust the size of the image */
+    height: auto;  /* Maintain aspect ratio */
+}
+
+#counter-variable {
+    font-size: 60px;
+    color: darkcyan;
+}
+
+.box {
+    background-color: white;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid black;
+    width: 150px;
+}
+
+.video-box {
+    text-align: left;
+}
+
+label {
+    color: darkcyan;
+    text-align: center;
+    font-family: "Rubik", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+input[type=checkbox]:hover {
+    box-shadow:0px 0px 4px #1300ff;
+}
+
+#photo {
+    width: 120px;
+    height: 100px;
+    text-align: right;
+    
+}
+
+#footer {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-family: "Rubik", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
