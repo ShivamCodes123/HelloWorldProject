@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "stylesheet" href = "../static/css/style.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Outfit:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <title>Push Up Tracker</title>
 </head>
 <body>
-    <h1 id = "title">PUSH UP TRACKER</h1>
+    <div class="flex-container">
+        <h1 id="title">PUSH UP TRACKER</h1>
+        <img id="photo" src="../static/img/pushup.jpg" alt="Push Up Image">
+    </div>
     <div class="container">
         <div class="video-box">
             <img src="{{ url_for('video_feed') }}" width="640" height="480" alt="Video Feed">
@@ -23,10 +27,13 @@
         </div>
         <div class="box">
             <label>
-                <input type = "checkbox"  class = "text" id = "enableTTS" onclick = "toggleTTS()""> Enable TTS
+                <input type = "checkbox"  class = "text" id = "enableTTS" onclick = "toggleTTS()"> Enable TTS
             </label>
         </div>
     </div>
+    <footer id = "footer">
+        Shivam Trivedi, Aiden Drepaniotis, Ayana Javed, Roger Li
+    </footer>
    
     <script>    
         let ttsEnabled = false;
@@ -43,17 +50,18 @@
                         const number = data.counter;
                         const utterance = new SpeechSynthesisUtterance(number);
                         utterance.volume = 1.0;
+                        utterance.rate = 1.75;
                         speechSynthesis.speak(utterance);
                     }
                     setTimeout(() => {
                         document.getElementById('counter-variable').innerText = data.counter;
-                    }, 450);
+                    }, 250);
                 })
                 .catch(error => console.log('Error:', error));
                 
         }
 
-        setInterval(updateCounter, 3000);
+        setInterval(updateCounter, 2000);
     </script>
     </body>
 </html>

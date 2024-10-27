@@ -1,4 +1,3 @@
-
 import cv2
 import mediapipe as mp
 import numpy as np
@@ -67,4 +66,3 @@ def generate_frames():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
